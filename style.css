@@ -1,0 +1,128 @@
+.keyDiv  {
+    text-align: center;
+    
+    
+}
+
+.mainDiv {
+    display: grid;
+    grid-template-rows:  5em 1fr 5em;
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    background: lightpink;
+}
+.mainDiv > div {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.showDiv {
+    display: grid;
+    grid-template-rows: 4em 6em 3em 1fr;
+}
+.showDiv > div {
+    border: 1px solid red;
+    padding: 10px;
+    margin: 3px;
+}
+.body > div {
+    border: 1px solid green;
+    padding: 1px;
+    margin: 5px;
+}
+#ShowAddResult, #viewResult {
+    font-size: 1.5em;
+    color: darkblue;
+    
+}
+.bookContainer {
+    font-size: 1.2em;
+    color: darkred;
+}
+.messageContainer {
+    font-size: 1.1em;
+    color: darkslateblue;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .mainDiv {
+        display: grid;
+        grid-template-rows:  5em 1fr 5em;
+        width: 100%;
+        height: 100%;
+        border: 1px solid blueviolet;
+        background: cornsilk;
+    }
+    
+    
+    .body {
+        display: grid;
+        grid-template-rows: 7em 10em 30em;
+       /* grid-template-columns: 1fr 1fr 1fr;*/
+    }
+    /*.showDiv, .addDiv {
+       grid-column: 1/4; 
+    }*/
+    .showDiv {
+        display: grid;
+        grid-template-rows: 4em 6em 3em 1fr;
+    }
+    
+    button {
+        border-radius: 12px;
+        background-color: tomato;
+        font-size: 1.1em;
+        padding: 5px;
+    }
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+    
+    
+    
+    
+    
+    
+}
+/* Large devices ( large phones and laptops, 600px and up) */
+@media only screen and (min-width: 601px)  {
+    button {
+        border-radius: 12px;
+        background-color: blueviolet;
+        font-size: 1.1em;
+        padding: 10px;
+    }
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+    .mainDiv {
+        display: grid;
+        grid-template-rows:  5em 1fr 5em;
+        width: 100%;
+        height: 100%;
+        border: 1px solid gray;
+        background: lightpink;
+    }
+    
+    
+    .body {
+        display: grid;
+        grid-template-rows: 7em 10em 30em;
+       /* grid-template-columns: 1fr 1fr 1fr;*/
+    }
+    /*.showDiv, .addDiv {
+        grid-column: 1/4;
+    }*/
+    .showDiv {
+        display: grid;
+        grid-template-rows: 4em 6em 3em 1fr;
+    }
+    
+    
+}
+.modifyClass {
+    color: lime;
+}
