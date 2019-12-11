@@ -1,38 +1,66 @@
-.keyDiv  {
+
+    
+   #getKey, #viewButton{
+    width: 50%;
+}
+input {
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2px;
+}
+.keyDiv, #viewResult, .viewButton{
     text-align: center;
+}
+h2 {
+    color: brown;
+    font-style: italic;
+    text-align: center;
+}
+.body > * {
+    padding: 10px;
+    margin: 5px;
+    
+}
+button {
+    color: white;
+}
+.header {
+    background: darkblue;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    
+    top: 50%;
+    left: 50%;
+}
+
+
+.mainDiv {
+    display: grid;
+    grid-template-rows:  5em 1fr;
+    width: 100%;
+    height: 90%;
+    padding: 10px;
+    margin: 5px;
     
     
 }
 
-.mainDiv {
-    display: grid;
-    grid-template-rows:  5em 1fr 5em;
-    width: 100%;
-    height: 100%;
-    border: 1px solid gray;
-    background: lightpink;
-}
-.mainDiv > div {
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 5px;
-}
 
 
 .showDiv {
     display: grid;
     grid-template-rows: 4em 6em 3em 1fr;
 }
-.showDiv > div {
-    border: 1px solid red;
-    padding: 10px;
-    margin: 3px;
-}
-.body > div {
-    border: 1px solid green;
-    padding: 1px;
-    margin: 5px;
-}
+
+
+
+
+    
+
 #ShowAddResult, #viewResult {
     font-size: 1.5em;
     color: darkblue;
@@ -48,27 +76,32 @@
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    
+    .keyMessage {
+        font-size: 1.1em;
+        color: green;
+    }
     .mainDiv {
         display: grid;
         grid-template-rows:  5em 1fr 5em;
         width: 100%;
         height: 100%;
-        border: 1px solid blueviolet;
-        background: cornsilk;
+        
+        
+        
     }
     
     
     .body {
         display: grid;
-        grid-template-rows: 7em 10em 30em;
-       /* grid-template-columns: 1fr 1fr 1fr;*/
+        grid-template-rows: 7em 13em 30em;
+        
+       
     }
-    /*.showDiv, .addDiv {
-       grid-column: 1/4; 
-    }*/
+    
     .showDiv {
         display: grid;
-        grid-template-rows: 4em 6em 3em 1fr;
+        grid-template-rows: 4em 6em 5em 1fr;
     }
     
     button {
@@ -81,14 +114,20 @@
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
       }
     
-    
-    
+      
     
     
     
 }
 /* Large devices ( large phones and laptops, 600px and up) */
 @media only screen and (min-width: 601px)  {
+    input {
+        width: 20%;
+    }
+    .keyMessage {
+        font-size: 1.3em;
+        color: green;
+    }
     button {
         border-radius: 12px;
         background-color: blueviolet;
@@ -103,22 +142,20 @@
         grid-template-rows:  5em 1fr 5em;
         width: 100%;
         height: 100%;
-        border: 1px solid gray;
-        background: lightpink;
+        
+        
     }
     
     
     .body {
         display: grid;
         grid-template-rows: 7em 10em 30em;
-       /* grid-template-columns: 1fr 1fr 1fr;*/
+       
     }
-    /*.showDiv, .addDiv {
-        grid-column: 1/4;
-    }*/
+    
     .showDiv {
         display: grid;
-        grid-template-rows: 4em 6em 3em 1fr;
+        grid-template-rows: 4em 6em 5em 1fr;
     }
     
     
