@@ -94,7 +94,7 @@ button {
     
     .body {
         display: grid;
-        grid-template-rows: 7em 13em 30em;
+        grid-template-rows: 11em 13em 30em;
         
        
     }
@@ -149,7 +149,7 @@ button {
     
     .body {
         display: grid;
-        grid-template-rows: 7em 10em 30em;
+        grid-template-rows: 12em 10em 30em;
        
     }
     

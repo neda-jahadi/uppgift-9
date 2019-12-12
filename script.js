@@ -25,7 +25,9 @@ window.addEventListener('load', () => {
                     console.log('Key is: ' + defaultKey);
                     baseUrl = `${apiUrl}key=` + defaultKey;
                     let keyDiv = document.querySelector('.keyDiv');
-                    keyMessage.innerHTML = 'Now it is ready to work here...';
+                    keyMessage.innerHTML =`Your password is: ${defaultKey}`;
+                    keyMessage.innerHTML +='..\n';
+                    keyMessage.innerHTML += 'Now it is ready to work here...';
                     i=6;
                 }else if ((keyData.status==='error')&&(i==4)){
                     keyMessage.innerHTML = `It is not successful to get the key after ${i+1} try(ies)`;
@@ -105,12 +107,22 @@ window.addEventListener('load', () => {
           try {
             const response = await fetch(viewUrl)
             const info = await response.json();
+            let addedBooks = info.data;
             if(info.status==='success'){
-                viewResult.innerText = 'Books are viewed!\n';
-                viewResult.innerText += `The successful view result after ${i+1} try :`;
+                viewResult.innerText = `The successful view result after ${i+1} try :`;
+                if(addedBooks.length===0){
+                    
+                    viewResult.innerText += '\nBut there is no book in the library';
+                }else{
+                    viewResult.innerText += '\nBooks are viewed!';
+                    
+                }
+                
+                
                 console.log(`The latest request(the ${i+1}th one) to API was successful`);
-                console.log('information:', info);
-                let addedBooks = info.data;
+                
+                
+                
                 addedBooks.forEach(b => {
 
                     let bookElement = createBookDOM(b);
@@ -206,21 +218,43 @@ window.addEventListener('load', () => {
         })
 
         deleteButton.addEventListener('click', async event=>{
+            console.log('delete click 1');
+            
            
             let deleteUrl = `${baseUrl}&op=delete&id=${receivedBook.id}`;
             modifyMessage.innerHTML = '';
             
             for (let j=0; j<5; j++){
-               try{
+                
+                try{
                 const deleteResponse = await fetch(deleteUrl);
                 const deleteResult = await deleteResponse.json();
+                
                 if(deleteResult.status==='success'){
-                    deleteMessage.innerHTML = `The delete result is successful after ${j+1} try(ies).`;
                     
+                    deleteMessage.innerHTML = `The book: ${bookTitle.value} is deleted after ${j+1} try(ies).`;
+                    
+                   // bookAuthor.style.display = 'none';
+                   // bookTitle.style.display = 'none';
+                    //deleteButton.style.display = 'none';
+                    //modifyButton.style.display = 'none';
+                     bookContainer.removeChild(bookAuthor);
+                     bookContainer.removeChild(bookTitle);
+                     bookContainer.removeChild(deleteButton);
+                     bookContainer.removeChild(modifyButton);
+                    
+
                     console.log('The delete request was successful');
                     console.log('delete result is: ', deleteResult);
                     j=6;
-                }else if ((deleteResult==='error')&&(j==4)){
+                    
+       
+        
+                    bookContainer.appendChild(messageContainer);
+                }else if ((deleteResult.status==='error')&&(j==4)){
+                    
+                    
+
                     deleteMessage.innerHTML = `The delete result is unsuccessful after ${j+1} try(ies). Click again!`;
                     
                     console.log('click on delete button again');
