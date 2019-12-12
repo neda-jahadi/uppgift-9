@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
             try{
                 const keyResponse = await fetch(keyUrl)
                 const keyData = await keyResponse.json();
-                //console.log('key data is:', keyData);
+                
                 console.log('key is: ', keyData.key);
                 if (keyData.status==='success'){
                     console.log('Got key: ', keyData);
@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
         let showAddResult = document.querySelector('#ShowAddResult');
         showAddResult.innerHTML = '';
         
-       // let resultAdd = document.createElement('div');
+       
         let addUrl = `${baseUrl}&op=insert&title=${title}&author=${author}`;
         for(let i=0; i<5; i++){
             
@@ -61,20 +61,20 @@ window.addEventListener('load', () => {
                 const data = await response.json();
                 if(data.status==='success'){
     
-                    //resultAdd.innerText = `The book added successfully.<br>The latest request(the ${i+1}th one) to API was successful `;
+                    
                     console.log(`The latest request(the ${i+1}th one) to API was successful`);
                     
                     showAddResult.innerText = 'Book is added!...\n';
                     showAddResult.innerText += `The adding was successfull after ${i+1} time(s) try`;
                     
-                    //`The book added successfully.<br>The latest request(the ${i+1}th one) to API was successful `;
+                   
                     i=6;
                 }
                 else if((data.status==='error')&&(i==4)){
-                    //resultAdd.innerText = `The book is not added. Please try again! <br>The latest request(the ${i+1}th one) to API was unsuccessful`;
+                   
                     showAddResult.innerText = `We had ${i+1} unsuccessful try(ies) to add the book`;
                     showAddResult.innerText += '\n Try the add botton again!';
-                    // `The latest request(the ${i+1}th one) to API was unsuccessful`;
+                   
                     console.log(`The latest request(the ${i+1}th one) to API was unsuccessful`);
                 }
                 console.log( data);
@@ -95,7 +95,7 @@ window.addEventListener('load', () => {
     let viewButton = document.querySelector('#viewButton');
     let viewDiv = document.querySelector('#showBooks');
     let viewResult = document.querySelector('#viewResult');
-    //let showResult = document.createElement('div');
+    
     viewButton.addEventListener('click' , async event =>{
         console.log('view button clicked');
         let viewUrl = `${baseUrl}&op=select`;
@@ -116,8 +116,7 @@ window.addEventListener('load', () => {
                     let bookElement = createBookDOM(b);
                     
                     
-                    //let modifyFunction = modifyFunction(modifyButton);
-                    //viewDiv.appendChild(modifyButton);
+                    
                     viewDiv.appendChild(bookElement);
                 
                 });
@@ -143,7 +142,7 @@ window.addEventListener('load', () => {
     })
        
     function createBookDOM(receivedBook) {
-        //{id, author, title, uppdated}
+       
         let messageContainer = document.createElement('div');
         messageContainer.innerHTML = 'Result messages here:';
         let modifyButton = document.createElement('button');
@@ -164,17 +163,16 @@ window.addEventListener('load', () => {
         bookAuthor.value = receivedBook.author;
         let bookT= bookTitle.value;
         let bookA= bookAuthor.value;
-       // let modifyFunction = modifyFunction(modifyButton);
+      
         bookContainer.appendChild(bookTitle);
         bookContainer.appendChild(bookAuthor);
         bookContainer.appendChild(modifyButton);
         bookContainer.appendChild(deleteButton);
-        //bookContainer.appendChild(modifyMessage);
+       
         
-        //bookContainer.appendChild(deleteMessage);
         bookContainer.appendChild(messageContainer);
         modifyButton.addEventListener('click', async event=>{
-            //console.log('the id is: ' ,receivedBook.id);
+            
             console.log('the modify button is clicked!');
             let modifyUrl = `${baseUrl}&op=update&id=${receivedBook.id}&title=${bookTitle.value}&author=${bookAuthor.value}`;
             
@@ -182,12 +180,11 @@ window.addEventListener('load', () => {
                try{
                 const modifyResponse = await fetch(modifyUrl);
                 const modifyResult = await modifyResponse.json();
-                console.log('modify result', modifyResult);
-                console.log('j is: ', j);
+                
                 if(modifyResult.status==='success'){
                     modifyMessage.innerHTML = `The modify result is successful after ${j+1} try(ies)`;
                     
-                    //messageContainer.appendChild(modifyMessage);
+                    
                     console.log('The modify request was successful');
                     console.log('modify result is: ', modifyResult);
                     j=6;
@@ -209,10 +206,10 @@ window.addEventListener('load', () => {
         })
 
         deleteButton.addEventListener('click', async event=>{
-            //console.log('the id is: ' ,receivedBook.id);
+           
             let deleteUrl = `${baseUrl}&op=delete&id=${receivedBook.id}`;
             modifyMessage.innerHTML = '';
-            //deleteMessage.innerHTML = '';
+            
             for (let j=0; j<5; j++){
                try{
                 const deleteResponse = await fetch(deleteUrl);
